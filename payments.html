@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Dates</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script type="text/javascript" src="../shared_assets/arrayMath.js"></script>
+    <script type="text/javascript" src="../shared_assets/date_modifier.js"></script>
+    <script type="text/javascript" src="../shared_assets/display.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/Payment.js"></script>
+    <script type="text/javascript" src="js/Validate.js"></script>
+</head>
+<body class="light-theme">
+    <header>
+        <img src="img/logo.png" width="438" height="248" alt="The word Y2GEEK">
+        <br>
+        <button id="switchButton" onclick="switchTheme()">Dark Mode</button>
+    </header>
+    <form method="getOutput()" class="light-theme">
+        <section>
+            <label for="startDate">Start Date:</label>
+            <br>
+            <input type="date" name="startDate" id="startDate" onchange="goButtonStatus()">
+        </section>
+        <section>
+            <label for="endDate">End Date:</label>
+            <br>
+            <input type="date" name="endDate" id="endDate" onchange="goButtonStatus()">
+        </section>
+        <section>
+            <label for="fileUpload">Please select your payment list file:</label>
+            <br>
+            <input type="file" id="fileUpload" onchange="getFileContents(this.files)"/>
+        </section>
+        <br>
+        <section id="go">
+            <input type="button" disabled id="goButton" value="Go" onclick="getOutput()">
+        </section>
+    </form>
+    <br>
+    <table id="output"></table>
+    <br>
+    <p id="totals">
+        <!-- 
+            Totals will go here (JavaScript provided)
+        -->
+    </p>
+</body>
+</html>
