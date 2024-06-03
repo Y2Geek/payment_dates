@@ -1,0 +1,22 @@
+This file will not be divided into sections like this automatically, this is done afterwards by hand.
+Real names are given to payments too, mine have been removed for privacy. Amounts have also been changed
+
+Income
+
+My Income
+
+IN;2020-12-03;Test Payment In 1;300.0;FORTNIGHTLY
+IN;2020-12-04;Test Payment In 2;500.0;FOURWEEKLY
+
+Outgoings
+
+Single Payment 
+OUT;2024-06-24;Payment Out;7.52
+
+Ongoing Payments
+OUT;2024-04-04;Payment Out Fortnightly ;10.0;FORTNIGHTLY
+OUT;2024-04-25;Payment Out Monthly;10.0;MONTHLY
+OUT;2024-12-07;Payment Out Yearly;19.0;YEARLY
+
+LimitedTime Payment
+OUT;2024-06-01;Payment Out Limited;26.0;MONTHLY;2025-05-01
