@@ -15,6 +15,7 @@ OUT;2024-06-24;Payment Out;7.52
 
 Ongoing Payments
 OUT;2024-04-04;Payment Out Fortnightly ;10.0;FORTNIGHTLY
+OUT;25/06/2024;INVALID;10.0;FORTNIGHTLY
 OUT;2024-04-25;Payment Out Monthly;10.0;MONTHLY
 OUT;2024-12-07;Payment Out Yearly;19.0;YEARLY
 

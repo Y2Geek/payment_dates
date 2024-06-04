@@ -40,6 +40,7 @@ function getFileContents(f) {
 function getAllPayments() {
     // Reset allPayments
     allPayments = [];
+    let brokenPayments = [];
     
     // Create payments.
     if(fileContents.length != 0) {
@@ -52,9 +53,14 @@ function getAllPayments() {
                 case 5:
                 case 6:
                     let pay = createPayment(parts);
-                    allPayments.push(pay);
+                    if(pay != undefined) {
+                        allPayments.push(pay);
+                    } else {
+                        brokenPayments.push(parts.toString());
+                    }
             }
         }
+        return brokenPayments;
     }
 }
 
@@ -66,8 +72,6 @@ function getAllPayments() {
 function getUpcomingPayments() {
     let dates = getDates();
     let upcoming = [];
-    // Reset the allPayments to initial state.
-    getAllPayments();
 
     if(allPayments.length != 0) {
         // update dates of all payments that are not single payments
@@ -128,14 +132,23 @@ function updatePaymentDate(pay, date) {
  * Function to be called by HTML and to provide the output for the HTML document.
  */
 function getOutput() {
+    let msg = '';
+    // Reset the allPayments to initial state.
+    let broken = getAllPayments();
+    if(broken.length!= 0) {
+        msg += '<div id="warning">Warning!<br>The following payments have errors, so will not be included in the below output:<br><ul>';
+        for(let pay of broken) {
+            msg += `<li>${pay}</li>`;
+        }
+        msg += '</ul></div>';
+    }
     // Refresh allPayments in case of cahnges 
     let payments = getUpcomingPayments();
-    let msg = '';
 
     if(payments.length === 0) {
         msg = '<p id="error">&#128543;<br>No payments to show!<br>Please check your payment list file!</p>';
     } else {
-        msg = '<table><tr><th>Date</th><th>Name</th><th>In</th><th>Out</th></tr>';
+        msg += '<table><tr><th>Date</th><th>Name</th><th>In</th><th>Out</th></tr>';
 
         for(let pay of payments) {
             msg += pay.shortString();

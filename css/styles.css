@@ -76,3 +76,8 @@ td {
     font-weight: bolder;
     text-align: center;
 }
+#warning {
+    background-color: #FF0000;
+    color: #FFFFFF;
+    font-size: 1.5em;
+}
