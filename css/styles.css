@@ -13,6 +13,8 @@ body {
     border-color: #000000;
 }
 #switchButton {
+    background-color: inherit;
+    color: inherit;
     font-size: inherit;
     font-weight: bolder;
     width: 20%;

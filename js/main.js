@@ -1,6 +1,37 @@
 let fileContents = [];
 let allPayments = [];
 
+
+
+/**
+ * Function called to switch colours
+ */
+function switchTheme() {
+    let body = getElement('tag', 'body');
+    let header = getElement('tag', 'header');
+    let form = getElement('id', 'inputForm');
+    let button = getElement('id', 'switchButton');
+    body = body[0];
+    header = header[0];
+    
+    if(body.classList.contains('light-theme')){
+        body.classList.remove('light-theme');
+        form.classList.remove('light-theme');
+        body.classList.add('dark-theme');
+        header.classList.add('dark-theme');
+        form.classList.add('dark-theme');
+        button.innerText = 'Light Mode';
+    } else {
+        body.classList.remove('dark-theme');
+        header.classList.remove('dark-theme');
+        form.classList.remove('dark-theme');
+        body.classList.add('light-theme');
+        form.classList.add('light-theme');
+        button.innerText = 'Dark Mode';
+    }
+}
+
+
 /**
  * A function to monitor the dates, if dates are not valid, the button is disabled.
  */
@@ -136,7 +167,7 @@ function getOutput() {
     // Reset the allPayments to initial state.
     let broken = getAllPayments();
     if(broken.length!= 0) {
-        msg += '<div id="warning">Warning!<br>The following payments have errors, so will not be included in the below output:<br><ul>';
+        msg += '<div id="warning">ERROR<br>The following payments have errors, so have not been included in the following output:<br><ul>';
         for(let pay of broken) {
             msg += `<li>${pay}</li>`;
         }
